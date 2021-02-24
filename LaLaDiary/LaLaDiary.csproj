@@ -69,11 +69,16 @@
     <Compile Include="Model\FoodData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\EatRecoderViewModel.cs" />
+    <Compile Include="ViewModel\FoodDataViewModel.cs" />
     <EmbeddedResource Include="BasicInformation.resx">
       <DependentUpon>BasicInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DailyRecord.resx">
       <DependentUpon>DailyRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodDatabase.resx">
+      <DependentUpon>FoodDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

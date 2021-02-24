@@ -30,8 +30,17 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvRecord = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,24 +62,21 @@
             this.lbSurplusF = new System.Windows.Forms.Label();
             this.lbSurplusC = new System.Windows.Forms.Label();
             this.lbSurplusCal = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btFoodDb = new System.Windows.Forms.Button();
+            this.btBasicInfo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ItemName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.UnitP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +107,7 @@
             this.UnitF,
             this.UnitC,
             this.UnitCal,
-            this.Unit,
+            this.Qty,
             this.TotalP,
             this.TotalF,
             this.TotalC,
@@ -112,14 +118,76 @@
             this.dgvRecord.RowTemplate.Height = 24;
             this.dgvRecord.Size = new System.Drawing.Size(704, 294);
             this.dgvRecord.TabIndex = 0;
+            this.dgvRecord.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvRecord_EditingControlShowing);
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "項目";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UnitP
+            // 
+            this.UnitP.HeaderText = "蛋白質";
+            this.UnitP.Name = "UnitP";
+            this.UnitP.Width = 70;
+            // 
+            // UnitF
+            // 
+            this.UnitF.HeaderText = "脂肪";
+            this.UnitF.Name = "UnitF";
+            this.UnitF.Width = 60;
+            // 
+            // UnitC
+            // 
+            this.UnitC.HeaderText = "碳水";
+            this.UnitC.Name = "UnitC";
+            this.UnitC.Width = 60;
+            // 
+            // UnitCal
+            // 
+            this.UnitCal.HeaderText = "熱量";
+            this.UnitCal.Name = "UnitCal";
+            this.UnitCal.Width = 60;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "份量";
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 60;
+            // 
+            // TotalP
+            // 
+            this.TotalP.HeaderText = "蛋白質";
+            this.TotalP.Name = "TotalP";
+            this.TotalP.Width = 70;
+            // 
+            // TotalF
+            // 
+            this.TotalF.HeaderText = "脂肪";
+            this.TotalF.Name = "TotalF";
+            this.TotalF.Width = 60;
+            // 
+            // TotalC
+            // 
+            this.TotalC.HeaderText = "碳水";
+            this.TotalC.Name = "TotalC";
+            this.TotalC.Width = 60;
+            // 
+            // TotalCal
+            // 
+            this.TotalCal.HeaderText = "熱量";
+            this.TotalCal.Name = "TotalCal";
+            this.TotalCal.Width = 60;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.90636F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09363F));
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -127,14 +195,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(704, 93);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(530, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 22);
-            this.dateTimePicker1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -355,6 +415,61 @@
             this.lbSurplusCal.TabIndex = 18;
             this.lbSurplusCal.Text = "0";
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.dateTimePicker1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel3, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(530, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.48276F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.51724F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(171, 87);
+            this.tableLayoutPanel4.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(165, 22);
+            this.dateTimePicker1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btFoodDb);
+            this.panel3.Controls.Add(this.btBasicInfo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(165, 51);
+            this.panel3.TabIndex = 1;
+            // 
+            // btFoodDb
+            // 
+            this.btFoodDb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btFoodDb.Location = new System.Drawing.Point(90, 0);
+            this.btFoodDb.Name = "btFoodDb";
+            this.btFoodDb.Size = new System.Drawing.Size(75, 51);
+            this.btFoodDb.TabIndex = 1;
+            this.btFoodDb.Text = "Food庫";
+            this.btFoodDb.UseVisualStyleBackColor = true;
+            this.btFoodDb.Click += new System.EventHandler(this.btFoodDb_Click);
+            // 
+            // btBasicInfo
+            // 
+            this.btBasicInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btBasicInfo.Location = new System.Drawing.Point(0, 0);
+            this.btBasicInfo.Name = "btBasicInfo";
+            this.btBasicInfo.Size = new System.Drawing.Size(75, 51);
+            this.btBasicInfo.TabIndex = 0;
+            this.btBasicInfo.Text = "基本資料";
+            this.btBasicInfo.UseVisualStyleBackColor = true;
+            this.btBasicInfo.Click += new System.EventHandler(this.btBasicInfo_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button2);
@@ -365,15 +480,6 @@
             this.panel2.Size = new System.Drawing.Size(704, 31);
             this.panel2.TabIndex = 2;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(545, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(626, 5);
@@ -383,64 +489,14 @@
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // ItemName
+            // button1
             // 
-            this.ItemName.HeaderText = "項目";
-            this.ItemName.Name = "ItemName";
-            // 
-            // UnitP
-            // 
-            this.UnitP.HeaderText = "蛋白質";
-            this.UnitP.Name = "UnitP";
-            this.UnitP.Width = 70;
-            // 
-            // UnitF
-            // 
-            this.UnitF.HeaderText = "脂肪";
-            this.UnitF.Name = "UnitF";
-            this.UnitF.Width = 60;
-            // 
-            // UnitC
-            // 
-            this.UnitC.HeaderText = "碳水";
-            this.UnitC.Name = "UnitC";
-            this.UnitC.Width = 60;
-            // 
-            // UnitCal
-            // 
-            this.UnitCal.HeaderText = "熱量";
-            this.UnitCal.Name = "UnitCal";
-            this.UnitCal.Width = 60;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "單位";
-            this.Unit.Name = "Unit";
-            this.Unit.Width = 60;
-            // 
-            // TotalP
-            // 
-            this.TotalP.HeaderText = "蛋白質";
-            this.TotalP.Name = "TotalP";
-            this.TotalP.Width = 70;
-            // 
-            // TotalF
-            // 
-            this.TotalF.HeaderText = "脂肪";
-            this.TotalF.Name = "TotalF";
-            this.TotalF.Width = 60;
-            // 
-            // TotalC
-            // 
-            this.TotalC.HeaderText = "碳水";
-            this.TotalC.Name = "TotalC";
-            this.TotalC.Width = 60;
-            // 
-            // TotalCal
-            // 
-            this.TotalCal.HeaderText = "熱量";
-            this.TotalCal.Name = "TotalCal";
-            this.TotalCal.Width = 60;
+            this.button1.Location = new System.Drawing.Point(545, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "確定";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // DailyRecord
             // 
@@ -456,6 +512,8 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -465,18 +523,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvRecord;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
@@ -501,5 +548,20 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCal;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btFoodDb;
+        private System.Windows.Forms.Button btBasicInfo;
     }
 }
