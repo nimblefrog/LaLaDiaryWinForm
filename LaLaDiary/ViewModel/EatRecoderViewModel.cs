@@ -8,6 +8,7 @@ namespace LaLaDiary.ViewModel
 {
     public class EatRecoderViewModel
     {
+        public static List<EatRecoder> ViewModel { get; set; } 
         public static List<EatRecoder> GetEatRecoders()
         {
             var tempFoodDatas = FoodDataViewModel.GetFoodDatas();

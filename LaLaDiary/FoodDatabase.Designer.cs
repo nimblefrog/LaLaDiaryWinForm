@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFoodDb = new System.Windows.Forms.DataGridView();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitF = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,9 +38,9 @@
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodDb)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvFoodDb, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -60,22 +60,22 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(649, 437);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvFoodDb
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFoodDb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoodDb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
             this.UnitP,
             this.UnitF,
             this.UnitC,
             this.UnitCal,
             this.Unit});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 345);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvFoodDb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFoodDb.Location = new System.Drawing.Point(3, 41);
+            this.dgvFoodDb.Name = "dgvFoodDb";
+            this.dgvFoodDb.RowTemplate.Height = 24;
+            this.dgvFoodDb.Size = new System.Drawing.Size(643, 345);
+            this.dgvFoodDb.TabIndex = 0;
             // 
             // ItemName
             // 
@@ -110,7 +110,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 392);
             this.panel1.Name = "panel1";
@@ -126,14 +126,15 @@
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(468, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(468, 10);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "確定";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FoodDatabase
             // 
@@ -144,7 +145,7 @@
             this.Name = "FoodDatabase";
             this.Text = "FoodDatabase";
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodDb)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -153,7 +154,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFoodDb;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitP;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitF;
@@ -162,6 +163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
     }
 }

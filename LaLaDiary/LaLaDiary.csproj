@@ -69,6 +69,7 @@
     <Compile Include="Model\FoodData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\BasicInfoViewModel.cs" />
     <Compile Include="ViewModel\EatRecoderViewModel.cs" />
     <Compile Include="ViewModel\FoodDataViewModel.cs" />
     <EmbeddedResource Include="BasicInformation.resx">

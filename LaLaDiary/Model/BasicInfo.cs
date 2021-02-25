@@ -9,6 +9,12 @@ namespace LaLaDiary.Model
     {
         public float CurrentWeight { get; set; }
         public float TargetWeight { get; set; }
+
+        public float DiffWeight
+        {
+            get { return CurrentWeight - TargetWeight; }
+        }
+
         public int TargetP { get; set; }
         public int TargetF { get; set; }
         public int TargetC { get; set; }
