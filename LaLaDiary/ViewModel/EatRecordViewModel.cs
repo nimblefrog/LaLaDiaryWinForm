@@ -6,28 +6,28 @@ using LaLaDiary.Model;
 
 namespace LaLaDiary.ViewModel
 {
-    public class EatRecoderViewModel
+    public class EatRecordViewModel
     {
-        public static List<EatRecoder> ViewModel { get; set; } 
-        public static List<EatRecoder> GetEatRecoders()
+        public static Dictionary<DateTime, List<EatRecord>> ViewModel { get; set; } 
+        public static List<EatRecord> GetEatRecoders()
         {
             var tempFoodDatas = FoodDataViewModel.GetFoodDatas();
-            return new List<EatRecoder>
+            return new List<EatRecord>
             {
-                new EatRecoder
+                new EatRecord
                 {
                     Date = DateTime.Today,
                     EatFood = tempFoodDatas[0],
                     Qty = 1,
                     Note = "多喝水"
                 },
-                new EatRecoder
+                new EatRecord
                 {
                     Date = DateTime.Today,
                     EatFood = tempFoodDatas[1],
                     Qty = 2
                 },
-                new EatRecoder
+                new EatRecord
                 {
                     Date = DateTime.Today,
                     EatFood = tempFoodDatas[2],

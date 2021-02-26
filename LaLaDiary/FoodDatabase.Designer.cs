@@ -143,7 +143,7 @@
             this.ClientSize = new System.Drawing.Size(649, 437);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FoodDatabase";
-            this.Text = "FoodDatabase";
+            this.Text = "食物資料庫";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodDb)).EndInit();
             this.panel1.ResumeLayout(false);

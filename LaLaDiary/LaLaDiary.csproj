@@ -65,12 +65,12 @@
       <DependentUpon>FoodDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BasicInfo.cs" />
-    <Compile Include="Model\EatRecoder.cs" />
+    <Compile Include="Model\EatRecord.cs" />
     <Compile Include="Model\FoodData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BasicInfoViewModel.cs" />
-    <Compile Include="ViewModel\EatRecoderViewModel.cs" />
+    <Compile Include="ViewModel\EatRecordViewModel.cs" />
     <Compile Include="ViewModel\FoodDataViewModel.cs" />
     <EmbeddedResource Include="BasicInformation.resx">
       <DependentUpon>BasicInformation.cs</DependentUpon>

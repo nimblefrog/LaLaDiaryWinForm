@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -32,15 +33,66 @@ namespace LaLaDiary
             InitializeComponent();
 
             FoodDataViewModel.ViewModel = FoodDataViewModel.GetFoodDatas();
-            EatRecoderViewModel.ViewModel = EatRecoderViewModel.GetEatRecoders();
             BasicInfoViewModel.ViewModel = new BasicInfo();
+            EatRecordViewModel.ViewModel = new Dictionary<DateTime, List<EatRecord>>();
+            var eatRecords = EatRecordViewModel.GetEatRecoders();
+            foreach (var eatRecord in eatRecords)
+            {
+                if (EatRecordViewModel.ViewModel.ContainsKey(eatRecord.Date))
+                {
+                    EatRecordViewModel.ViewModel[eatRecord.Date].Add(eatRecord);
+                }
+                else
+                {
+                    EatRecordViewModel.ViewModel.Add(eatRecord.Date, new List<EatRecord>{eatRecord});
+                }               
+            }
 
+
+            DisplayInfo();
+
+            UpdateTargetBasicInfo();
+
+            #region Food庫選單
+
+            _itemNameCollection = new AutoCompleteStringCollection();
+            foreach (var foodData in FoodDataViewModel.ViewModel)
+            {
+                _itemNameCollection.Add(foodData.Name);
+            }
+
+            #endregion
+        }
+
+        private void ClearUiInfo()
+        {
+            dgvRecord.Rows.Clear();
+            lbTodayP.Text = @"0";
+            lbTodayF.Text = @"0";
+            lbTodayC.Text = @"0";
+            lbTodayCal.Text = @"0";
+
+            lbSurplusP.Text = (BasicInfoViewModel.ViewModel.TargetP).ToString();
+            lbSurplusF.Text = (BasicInfoViewModel.ViewModel.TargetF).ToString();
+            lbSurplusC.Text = (BasicInfoViewModel.ViewModel.TargetC).ToString();
+            lbSurplusCal.Text = (BasicInfoViewModel.ViewModel.TargetCal).ToString();
+        }
+
+        private void DisplayInfo()
+        {
             #region 列表資料呈現
 
             dgvRecord.Rows.Clear();
-            
+
             double sumP = 0, sumF = 0, sumC = 0, sumCal = 0;
-            foreach (var eatRecoder in EatRecoderViewModel.ViewModel)
+            var date = dateTimePicker1.Value.Date;
+            if (!EatRecordViewModel.ViewModel.ContainsKey(date))
+            {
+                ClearUiInfo();
+                return;
+            }
+
+            foreach (var eatRecoder in EatRecordViewModel.ViewModel[date])
             {
                 var index = dgvRecord.Rows.Add();
                 dgvRecord.Rows[index].Cells[_itemName].Value = eatRecoder.EatFood.Name;
@@ -58,7 +110,7 @@ namespace LaLaDiary
                 sumP += eatRecoder.TotalP;
                 sumF += eatRecoder.TotalF;
                 sumC += eatRecoder.TotalC;
-                sumCal += eatRecoder.TotalCal;                
+                sumCal += eatRecoder.TotalCal;
             }
             #endregion
 
@@ -69,22 +121,10 @@ namespace LaLaDiary
             lbTodayC.Text = sumC.ToString(CultureInfo.InvariantCulture);
             lbTodayCal.Text = sumCal.ToString(CultureInfo.InvariantCulture);
 
-            UpdateTargetBasicInfo();
-
             lbSurplusP.Text = (BasicInfoViewModel.ViewModel.TargetP - sumP).ToString();
             lbSurplusF.Text = (BasicInfoViewModel.ViewModel.TargetF - sumF).ToString();
             lbSurplusC.Text = (BasicInfoViewModel.ViewModel.TargetC - sumC).ToString();
             lbSurplusCal.Text = (BasicInfoViewModel.ViewModel.TargetCal - sumCal).ToString();
-
-            #endregion
-
-            #region Food庫選單
-
-            _itemNameCollection = new AutoCompleteStringCollection();
-            foreach (var foodData in FoodDataViewModel.ViewModel)
-            {
-                _itemNameCollection.Add(foodData.Name);
-            }
 
             #endregion
         }
@@ -148,7 +188,7 @@ namespace LaLaDiary
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            EatRecoderViewModel.ViewModel.Clear();
+            EatRecordViewModel.ViewModel.Clear();
             foreach (DataGridViewRow row in dgvRecord.Rows)
             {
                 if(row.Cells[_itemName].Value == null) continue;
@@ -166,15 +206,22 @@ namespace LaLaDiary
                     };
                     FoodDataViewModel.ViewModel.Add(foodData);
                 }
-                var eatRecoder = new EatRecoder
+                var eatRecord = new EatRecord
                 {
                     EatFood = foodData,
                     Qty = Convert.ToDouble(row.Cells[_qty].Value),
                     Note = row.Cells[_note].ToString(),
-                    Date = dateTimePicker1.Value
+                    Date = dateTimePicker1.Value.Date
                 };
 
-                EatRecoderViewModel.ViewModel.Add(eatRecoder);
+                if (EatRecordViewModel.ViewModel.ContainsKey(eatRecord.Date))
+                {
+                    EatRecordViewModel.ViewModel[eatRecord.Date].Add(eatRecord);
+                }
+                else
+                {
+                    EatRecordViewModel.ViewModel.Add(eatRecord.Date, new List<EatRecord> { eatRecord });
+                }    
             }
         }
 
@@ -213,6 +260,11 @@ namespace LaLaDiary
             lbSurplusF.Text = (BasicInfoViewModel.ViewModel.TargetF - sumF).ToString();
             lbSurplusC.Text = (BasicInfoViewModel.ViewModel.TargetC - sumC).ToString();
             lbSurplusCal.Text = (BasicInfoViewModel.ViewModel.TargetCal - sumCal).ToString();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DisplayInfo();
         }
     }
 }

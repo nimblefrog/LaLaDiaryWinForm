@@ -30,6 +30,17 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvRecord = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,17 +71,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -122,6 +122,72 @@
             this.dgvRecord.TabIndex = 0;
             this.dgvRecord.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecord_CellEndEdit);
             this.dgvRecord.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvRecord_EditingControlShowing);
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "項目";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UnitP
+            // 
+            this.UnitP.HeaderText = "蛋白質";
+            this.UnitP.Name = "UnitP";
+            this.UnitP.Width = 70;
+            // 
+            // UnitF
+            // 
+            this.UnitF.HeaderText = "脂肪";
+            this.UnitF.Name = "UnitF";
+            this.UnitF.Width = 60;
+            // 
+            // UnitC
+            // 
+            this.UnitC.HeaderText = "碳水";
+            this.UnitC.Name = "UnitC";
+            this.UnitC.Width = 60;
+            // 
+            // UnitCal
+            // 
+            this.UnitCal.HeaderText = "熱量";
+            this.UnitCal.Name = "UnitCal";
+            this.UnitCal.Width = 60;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "份量";
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 60;
+            // 
+            // TotalP
+            // 
+            this.TotalP.HeaderText = "蛋白質";
+            this.TotalP.Name = "TotalP";
+            this.TotalP.Width = 70;
+            // 
+            // TotalF
+            // 
+            this.TotalF.HeaderText = "脂肪";
+            this.TotalF.Name = "TotalF";
+            this.TotalF.Width = 60;
+            // 
+            // TotalC
+            // 
+            this.TotalC.HeaderText = "碳水";
+            this.TotalC.Name = "TotalC";
+            this.TotalC.Width = 60;
+            // 
+            // TotalCal
+            // 
+            this.TotalCal.HeaderText = "熱量";
+            this.TotalCal.Name = "TotalCal";
+            this.TotalCal.Width = 60;
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "備註";
+            this.Note.Name = "Note";
             // 
             // tableLayoutPanel2
             // 
@@ -379,6 +445,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(165, 22);
             this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // panel3
             // 
@@ -441,72 +508,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "項目";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ItemName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // UnitP
-            // 
-            this.UnitP.HeaderText = "蛋白質";
-            this.UnitP.Name = "UnitP";
-            this.UnitP.Width = 70;
-            // 
-            // UnitF
-            // 
-            this.UnitF.HeaderText = "脂肪";
-            this.UnitF.Name = "UnitF";
-            this.UnitF.Width = 60;
-            // 
-            // UnitC
-            // 
-            this.UnitC.HeaderText = "碳水";
-            this.UnitC.Name = "UnitC";
-            this.UnitC.Width = 60;
-            // 
-            // UnitCal
-            // 
-            this.UnitCal.HeaderText = "熱量";
-            this.UnitCal.Name = "UnitCal";
-            this.UnitCal.Width = 60;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "份量";
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 60;
-            // 
-            // TotalP
-            // 
-            this.TotalP.HeaderText = "蛋白質";
-            this.TotalP.Name = "TotalP";
-            this.TotalP.Width = 70;
-            // 
-            // TotalF
-            // 
-            this.TotalF.HeaderText = "脂肪";
-            this.TotalF.Name = "TotalF";
-            this.TotalF.Width = 60;
-            // 
-            // TotalC
-            // 
-            this.TotalC.HeaderText = "碳水";
-            this.TotalC.Name = "TotalC";
-            this.TotalC.Width = 60;
-            // 
-            // TotalCal
-            // 
-            this.TotalCal.HeaderText = "熱量";
-            this.TotalCal.Name = "TotalCal";
-            this.TotalCal.Width = 60;
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "備註";
-            this.Note.Name = "Note";
-            // 
             // DailyRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -514,7 +515,7 @@
             this.ClientSize = new System.Drawing.Size(806, 436);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DailyRecord";
-            this.Text = "DailyRecord";
+            this.Text = "每日記錄";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

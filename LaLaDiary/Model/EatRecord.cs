@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LaLaDiary.Model
 {
-    public class EatRecoder
+    public class EatRecord
     {
         public DateTime Date { get; set; }
         public FoodData EatFood { get; set; }
