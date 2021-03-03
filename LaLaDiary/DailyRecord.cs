@@ -135,6 +135,15 @@ namespace LaLaDiary
             lbTargetF.Text = BasicInfoViewModel.ViewModel.TargetF.ToString();
             lbTargetC.Text = BasicInfoViewModel.ViewModel.TargetC.ToString();
             lbTargetCal.Text = BasicInfoViewModel.ViewModel.TargetCal.ToString();
+
+            var sumP = Convert.ToDouble(lbTodayP.Text);
+            var sumF = Convert.ToDouble(lbTodayF.Text);
+            var sumC = Convert.ToDouble(lbTodayC.Text);
+            var sumCal = Convert.ToDouble(lbTodayCal.Text);
+            lbSurplusP.Text = (BasicInfoViewModel.ViewModel.TargetP - sumP).ToString();
+            lbSurplusF.Text = (BasicInfoViewModel.ViewModel.TargetF - sumF).ToString();
+            lbSurplusC.Text = (BasicInfoViewModel.ViewModel.TargetC - sumC).ToString();
+            lbSurplusCal.Text = (BasicInfoViewModel.ViewModel.TargetCal - sumCal).ToString();
         }
 
         private void btBasicInfo_Click(object sender, EventArgs e)
